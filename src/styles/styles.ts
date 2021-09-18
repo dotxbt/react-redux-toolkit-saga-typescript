@@ -24,7 +24,7 @@ export const Tile = styled.div`
     padding: 24px 46px;
     margin: 10px;
     text-align: left;
-    background-color: #ac22ff;
+    background-color: #8800ff;
     color: #FFF;
     border-radius: 10px;
 `
