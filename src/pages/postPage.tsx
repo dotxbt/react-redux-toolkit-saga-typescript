@@ -28,12 +28,13 @@ const Counter = () => {
   return (
     <Box>
       <div style={{ backgroundColor: "#fff888", padding: 20 }}>
-        <h1>COUNTER REDUX TOOLKIT TEST</h1>
+        <h1>[ COUNTER REDUX TOOLKIT TYPSCRIPT EXAMPLE ]</h1>
         <h1 style={{ fontSize: 100, padding: 0, margin: 8 }}>{count}</h1>
         <Button onClick={() => dispatch(increment())}>Increment</Button>
         <Button onClick={() => dispatch(decrement())}>Decrement</Button>
         <Button onClick={() => dispatch(resetCount())}>Reset Value</Button>
       </div>
+      <h1>[ REACT REDUX | TYPESCRIPT | REDUX-SAGA MIDDLEWARE | API FETCH BY AXIOS ]</h1>
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (
