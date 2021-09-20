@@ -8,8 +8,9 @@ import {
 import { Checkbox } from "../styles/input.style";
 import { Box, Button, Column } from "../styles/styles";
 import { TextTitle } from "../styles/text.style";
+import TampilanContoh from "./tampilanContoh";
 
-const Counter = () => {
+const PostPage = () => {
   const { data: dataPost, loading: isLoading } = useAppSelector(
     (state) => state.post
   );
@@ -37,6 +38,7 @@ const Counter = () => {
 
   return (
     <Box>
+      <TampilanContoh />
       {isLoading ? (
         <h1 style={{ color: "#00ff22", margin: 0 }}>Loading...</h1>
       ) : (
@@ -111,4 +113,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default PostPage;

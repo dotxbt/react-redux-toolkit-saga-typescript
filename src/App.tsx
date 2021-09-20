@@ -1,7 +1,13 @@
-import Counter from './pages/postPage';
+import PostPage from "./pages/postPage";
+import TampilanContoh from "./pages/tampilanContoh";
 
 const App = () => {
-  return <Counter />;
-}
+  return (
+    <div style={{ backgroundColor: "#FFFF00" }}>
+      <PostPage />
+      <TampilanContoh />
+    </div>
+  );
+};
 
 export default App;
