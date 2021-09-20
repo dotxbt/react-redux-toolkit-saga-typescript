@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react";
+import { TileComponent } from "../components/tileComponent";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import {
-  decrement,
-  increment,
-  resetCount,
-} from "../redux/reducers/counterSlice";
-import { fetchPostRequest } from "../redux/reducers/postReducer";
-import { Box, Button, Tile } from "../styles/styles";
+  checkboxChange,
+  fetchPostRequest,
+} from "../redux/reducers/postReducer";
+import { Checkbox } from "../styles/input.style";
+import { Box, Button, Column } from "../styles/styles";
+import { TextTitle } from "../styles/text.style";
 
 const Counter = () => {
-  const count = useAppSelector((state) => state.counter.value);
   const { data: dataPost, loading: isLoading } = useAppSelector(
     (state) => state.post
   );
+  let checked = 0;
+  const total = dataPost.length;
+  if (!isLoading) {
+    dataPost.forEach((e) => {
+      if (e.isChecked) {
+        checked++;
+      }
+    });
+  }
+
   const [refresh, setrefresh] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -27,34 +37,74 @@ const Counter = () => {
 
   return (
     <Box>
-      <div style={{ backgroundColor: "#fff888", padding: 20 }}>
-        <h1>[ COUNTER REDUX TOOLKIT TYPSCRIPT EXAMPLE ]</h1>
-        <h1 style={{ fontSize: 100, padding: 0, margin: 8 }}>{count}</h1>
-        <Button onClick={() => dispatch(increment())}>Increment</Button>
-        <Button onClick={() => dispatch(decrement())}>Decrement</Button>
-        <Button onClick={() => dispatch(resetCount())}>Reset Value</Button>
-      </div>
-      <h1>[ REACT REDUX | TYPESCRIPT | REDUX-SAGA MIDDLEWARE | API FETCH BY AXIOS ]</h1>
       {isLoading ? (
-        <h1>Loading...</h1>
+        <h1 style={{ color: "#00ff22", margin: 0 }}>Loading...</h1>
       ) : (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            padding: "20px 40px",
+            flexWrap: "wrap",
+          }}
+        >
           <Button
             onClick={() => {
               refresh ? setrefresh(false) : setrefresh(true);
             }}
           >
-            Refresh
+            Request Data
           </Button>
           <a href="https://jsonplaceholder.typicode.com/posts">API Example</a>
+          <span>
+            <h4 style={{ color: "#ffffff", margin: "0px 20px" }}>
+              Total
+              <br />
+              <span style={{ color: "#ff0000", fontSize: "1.5em" }}>
+                {total}
+              </span>
+            </h4>
+          </span>
+          <span>
+            <h4 style={{ color: "#ffffff", margin: "0px 20px" }}>
+              checked
+              <br />
+              <span style={{ color: "#ff0000", fontSize: "1.5em" }}>
+                {checked}
+              </span>
+            </h4>
+          </span>
         </div>
       )}
       {dataPost.map((post) => (
         <div key={post.id}>
-          <Tile>
-            <h1>{post.title}</h1>
-            <p style={{ fontSize: 20 }}>{post.body}</p>
-          </Tile>
+          <TileComponent>
+            <Column>
+              <TextTitle size={"16px"} padding={"3px 0px"}>
+                {post.title}
+              </TextTitle>
+              <p
+                style={{
+                  fontSize: 12,
+                  color: "#969393",
+                  padding: "6px 0px",
+                  margin: 0,
+                }}
+              >
+                {post.body.substring(0, 100)}
+              </p>
+            </Column>
+            <Checkbox
+              checked={post.isChecked}
+              type="checkbox"
+              value={"checked"}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                dispatch(
+                  checkboxChange({ isChecked: e.target.checked, id: post.id })
+                );
+              }}
+            />
+          </TileComponent>
         </div>
       ))}
     </Box>
