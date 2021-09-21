@@ -1,11 +1,10 @@
-import PostPage from "./pages/postPage";
-import TampilanContoh from "./pages/tampilanContoh";
+import HomePages from "./pages/homePage";
+
 
 const App = () => {
   return (
-    <div style={{ backgroundColor: "#FFFF00" }}>
-      <PostPage />
-      <TampilanContoh />
+    <div>
+      <HomePages />
     </div>
   );
 };

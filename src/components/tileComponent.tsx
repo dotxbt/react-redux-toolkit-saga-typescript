@@ -2,6 +2,7 @@ import { FC } from "react";
 import { RoundedImage } from "../styles/image.style";
 import { ItemLayout } from "../styles/layout.styled";
 
+
 export const TileComponent: FC<{}> = ({ children }) => {
   return (
     <ItemLayout alignItems={"center"} direction={"row"}>
