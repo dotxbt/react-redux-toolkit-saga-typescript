@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const Button = styled.button`
-  padding: 10px 16px;
+  padding: 16px 24px;
   margin: 10px 20px;
   background-color: #ff0000;
   font-size: 16px;
@@ -8,6 +8,10 @@ export const Button = styled.button`
   border: none;
   color: #ffffff;
   font-weight: 600;
+  transition: background 0.5s;
+  :active {
+    background-color: #9900ff;
+  }
 `;
 export const TextCount = styled.h1`
   font-size: 10em;
@@ -16,18 +20,13 @@ export const TextCount = styled.h1`
 `;
 
 export const Box = styled.div`
-  text-align: center;
-  align-items: center;
-  max-width: 720px;
   margin: 0 auto;
-  background-color: #131318;
-  background-image: linear-gradient(
-    to bottom right,
-    #221122,
-    #221122,
-    #441133,
-    #000011
-  );
+  padding: 74px 0px;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
 `;
 
 export const Tile = styled.div`
@@ -36,6 +35,7 @@ export const Tile = styled.div`
   display: flex;
   flex-direction: ${(props) =>
     props.theme.direction ? props.theme.direction : "row"};
+  box-shadow: 10px 10px 5px #ff00cc;
   text-align: left;
   align-items: center;
   background-color: rgba(55, 57, 66, 0.6);

@@ -1,11 +1,9 @@
-import PostPage from "./pages/postPage";
-import TampilanContoh from "./pages/tampilanContoh";
+import MainPage from "./pages/main.page";
 
 const App = () => {
   return (
-    <div style={{ backgroundColor: "#FFFF00" }}>
-      <PostPage />
-      <TampilanContoh />
+    <div style={{ backgroundColor: "#000000" }}>
+      <MainPage />
     </div>
   );
 };
