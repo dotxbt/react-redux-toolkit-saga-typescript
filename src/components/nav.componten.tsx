@@ -3,7 +3,9 @@ import { RouteComponentProps } from "react-router-dom";
 import Page2 from "../pages/page2";
 import Page3 from "../pages/page3";
 import Page4 from "../pages/page4";
+import { West } from "@mui/icons-material";
 import PostPage from "../pages/postPage";
+
 import {
   NavBar,
   NavItem,
@@ -87,7 +89,7 @@ export const TopNavigation = (props: any) => {
   return (
     <NavBar top={"0px"} boxShadow={"0px 1px 12px #8c00ff77"}>
       <div style={{display: "flex", width: "100%", alignItems: "center", margin: "0px 10px"}}>
-        <div style={{ padding: "10px 20px", color: "white", backgroundColor: "blue"}}> Back </div>
+        <West style={{color: "#ffffff"}} />
         <div style={{ padding: "10px 24px", color: "white", display: "flex", flex: "100%", textAlign: 'center', flexGrow: 10}}>{props.data}</div>
       </div>
     </NavBar>
